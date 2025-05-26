@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BÀI TẬP JS BUỔI 5</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>BÀI TẬP JAVASCRIPT BUỔI 5</h1>
+
+      <!-- Navigation Tabs -->
+      <div class="tabs">
+        <button class="tab-button active" onclick="showTab('bai1')">
+          Bài 1: Tuyển Sinh
+        </button>
+        <button class="tab-button" onclick="showTab('bai2')">
+          Bài 2: Tiền Điện
+        </button>
+        <button class="tab-button" onclick="showTab('bai3')">
+          Bài 3: Thuế
+        </button>
+        <button class="tab-button" onclick="showTab('bai4')">
+          Bài 4: Tiền Cáp
+        </button>
+      </div>
+
+      <!-- Bài 1: Quản lý tuyển sinh -->
+      <div id="bai1" class="tab-content active">
+        <h2>Bài 1: Quản Lý Tuyển Sinh</h2>
+
+        <div class="form-group">
+          <label>Điểm chuẩn:</label>
+          <input
+            type="number"
+            id="diemChuan"
+            step="0.1"
+            placeholder="Nhập điểm chuẩn"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Điểm môn 1:</label>
+          <input
+            type="number"
+            id="diemMon1"
+            step="0.1"
+            placeholder="Nhập điểm môn 1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Điểm môn 2:</label>
+          <input
+            type="number"
+            id="diemMon2"
+            step="0.1"
+            placeholder="Nhập điểm môn 2"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Điểm môn 3:</label>
+          <input
+            type="number"
+            id="diemMon3"
+            step="0.1"
+            placeholder="Nhập điểm môn 3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Khu vực:</label>
+          <select id="khuVuc">
+            <option value="X">X - Không ưu tiên</option>
+            <option value="A">A - 2 điểm</option>
+            <option value="B">B - 1 điểm</option>
+            <option value="C">C - 0.5 điểm</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Đối tượng:</label>
+          <select id="doiTuong">
+            <option value="0">0 - Không ưu tiên</option>
+            <option value="1">1 - 2.5 điểm</option>
+            <option value="2">2 - 1.5 điểm</option>
+            <option value="3">3 - 1 điểm</option>
+          </select>
+        </div>
+
+        <button onclick="xetTuyen()">Xét Tuyển</button>
+        <div id="ketQua1"></div>
+      </div>
+
+      <!-- Bài 2: Tính tiền điện -->
+      <div id="bai2" class="tab-content">
+        <h2>Bài 2: Tính Tiền Điện</h2>
+
+        <div class="form-group">
+          <label>Tên khách hàng:</label>
+          <input
+            type="text"
+            id="tenKhachHang"
+            placeholder="Nhập tên khách hàng"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Số KW tiêu thụ:</label>
+          <input type="number" id="soKW" placeholder="Nhập số KW" min="0" />
+        </div>
+
+        <button onclick="tinhTienDien()">Tính Tiền Điện</button>
+        <div id="ketQua2"></div>
+      </div>
+
+      <!-- Bài 3: Tính thuế -->
+      <div id="bai3" class="tab-content">
+        <h2>Bài 3: Tính Thuế Thu Nhập Cá Nhân</h2>
+
+        <div class="form-group">
+          <label>Họ tên:</label>
+          <input type="text" id="hoTen" placeholder="Nhập họ tên" />
+        </div>
+
+        <div class="form-group">
+          <label>Tổng thu nhập năm (triệu VNĐ):</label>
+          <input
+            type="number"
+            id="tongThuNhap"
+            placeholder="Nhập thu nhập năm"
+            min="0"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Số người phụ thuộc:</label>
+          <input
+            type="number"
+            id="soNguoiPhuThuoc"
+            placeholder="Nhập số người phụ thuộc"
+            min="0"
+          />
+        </div>
+
+        <button onclick="tinhThue()">Tính Thuế</button>
+        <div id="ketQua3"></div>
+      </div>
+
+      <!-- Bài 4: Tính tiền cáp -->
+      <div id="bai4" class="tab-content">
+        <h2>📺 Bài 4: Tính Tiền Cáp</h2>
+
+        <div class="form-group">
+          <label>Mã khách hàng:</label>
+          <input
+            type="text"
+            id="maKhachHang"
+            placeholder="Nhập mã khách hàng"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Loại khách hàng:</label>
+          <select id="loaiKhachHang" onchange="updateLayout()">
+            <option value="nhaDan">Nhà dân</option>
+            <option value="doanhNghiep">Doanh nghiệp</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Số kênh cao cấp:</label>
+          <input type="number" id="soKenh" placeholder="Nhập số kênh" min="0" />
+        </div>
+
+        <div class="form-group" id="ketNoiGroup">
+          <label id="labelSoKetNoi">Số kết nối:</label>
+          <input
+            type="number"
+            id="soKetNoi"
+            placeholder="Nhập số kết nối"
+            min="0"
+          />
+        </div>
+
+        <button onclick="tinhTien()">Tính Tiền</button>
+        <div id="ketQua4"></div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
