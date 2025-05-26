@@ -10,7 +10,6 @@
     <div class="container">
       <h1>BÀI TẬP JAVASCRIPT BUỔI 5</h1>
 
-      <!-- Navigation Tabs -->
       <div class="tabs">
         <button class="tab-button active" onclick="showTab('bai1')">
           Bài 1: Tuyển Sinh
@@ -26,7 +25,6 @@
         </button>
       </div>
 
-      <!-- Bài 1: Quản lý tuyển sinh -->
       <div id="bai1" class="tab-content active">
         <h2>Bài 1: Quản Lý Tuyển Sinh</h2>
 
@@ -71,30 +69,29 @@
         </div>
 
         <div class="form-group">
-          <label>Khu vực:</label>
-          <select id="khuVuc">
-            <option value="X">X - Không ưu tiên</option>
-            <option value="A">A - 2 điểm</option>
-            <option value="B">B - 1 điểm</option>
-            <option value="C">C - 0.5 điểm</option>
-          </select>
+          <label>Khu vực (A, B, C hoặc X):</label>
+          <input
+            type="text"
+            id="khuVuc"
+            placeholder="Nhập A, B, C hoặc X"
+            maxlength="1"
+          />
         </div>
 
         <div class="form-group">
-          <label>Đối tượng:</label>
-          <select id="doiTuong">
-            <option value="0">0 - Không ưu tiên</option>
-            <option value="1">1 - 2.5 điểm</option>
-            <option value="2">2 - 1.5 điểm</option>
-            <option value="3">3 - 1 điểm</option>
-          </select>
+          <label>Đối tượng (1, 2, 3 hoặc 0):</label>
+          <input
+            type="text"
+            id="doiTuong"
+            placeholder="Nhập 1, 2, 3 hoặc 0"
+            maxlength="1"
+          />
         </div>
 
         <button onclick="xetTuyen()">Xét Tuyển</button>
         <div id="ketQua1"></div>
       </div>
 
-      <!-- Bài 2: Tính tiền điện -->
       <div id="bai2" class="tab-content">
         <h2>Bài 2: Tính Tiền Điện</h2>
 
@@ -116,7 +113,6 @@
         <div id="ketQua2"></div>
       </div>
 
-      <!-- Bài 3: Tính thuế -->
       <div id="bai3" class="tab-content">
         <h2>Bài 3: Tính Thuế Thu Nhập Cá Nhân</h2>
 
@@ -149,9 +145,8 @@
         <div id="ketQua3"></div>
       </div>
 
-      <!-- Bài 4: Tính tiền cáp -->
       <div id="bai4" class="tab-content">
-        <h2>📺 Bài 4: Tính Tiền Cáp</h2>
+        <h2>Bài 4: Tính Tiền Cáp</h2>
 
         <div class="form-group">
           <label>Mã khách hàng:</label>
